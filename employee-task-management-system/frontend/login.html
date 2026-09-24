@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in — ETMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d2137'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23c9a227' font-family='Arial' font-weight='bold'>E</text></svg>">
+</head>
+<body>
+<div class="auth-wrap">
+  <section class="auth-side" aria-label="About ETMS">
+    <div class="brand-row"><span class="brand-mark">E</span><strong>ETMS</strong></div>
+    <h1>One workspace for people, projects and delivery.</h1>
+    <p>Enterprise Task Management System — the internal operations platform for departments, projects and task delivery.</p>
+    <div class="pillar-grid">
+      <div class="pillar" id="pil1"><strong>People</strong><span>Workforce directory &amp; departments</span></div>
+      <div class="pillar" id="pil2"><strong>Projects</strong><span>Milestones, owners &amp; deadlines</span></div>
+      <div class="pillar" id="pil3"><strong>Tasks</strong><span>Assignment, priority &amp; status</span></div>
+      <div class="pillar" id="pil4"><strong>Analytics</strong><span>Progress &amp; delivery insights</span></div>
+    </div>
+    <div class="auth-proof">
+      <span id="proof1">Role-based access</span>
+      <span id="proof2">JWT-secured API</span>
+      <span id="proof3">PostgreSQL-backed records</span>
+    </div>
+  </section>
+  <div class="auth-box">
+    <div class="auth-card">
+      <h2>Welcome back</h2>
+      <p class="sub">Sign in to your workspace</p>
+      <div class="auth-tabs" role="tablist" aria-label="Sign in or register">
+        <button id="tabLogin" class="on" role="tab" aria-selected="true" type="button" onclick="showTab('login')">Sign in</button>
+        <button id="tabRegister" role="tab" aria-selected="false" type="button" onclick="showTab('register')">Register</button>
+      </div>
+      <form id="loginForm" onsubmit="return doLogin(event)" novalidate>
+        <div class="f-field">
+          <label class="f-label" for="username">Username</label>
+          <input class="f-input" id="username" autocomplete="username" placeholder="e.g. demo_admin" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="password">Password</label>
+          <input class="f-input" id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+        </div>
+        <div class="auth-meta">
+          <label class="check-row" style="margin:0"><input type="checkbox" id="remember" checked> Remember me</label>
+          <a href="#" onclick="forgotPassword(event)">Forgot password?</a>
+        </div>
+        <div class="f-error" id="loginError" role="alert"></div>
+        <button class="btn btn-primary" id="loginBtn" type="submit" style="width:100%;justify-content:center">Sign in</button>
+      </form>
+      <form id="registerForm" style="display:none" onsubmit="return doRegister(event)" novalidate>
+        <div class="f-field">
+          <label class="f-label" for="r_user">Username</label>
+          <input class="f-input" id="r_user" autocomplete="username" placeholder="Choose a username" required>
+        </div>
+        <div class="f-field">
+          <label class="f-label" for="r_email">Work email</label>
+          <input class="f-input" id="r_email" type="email" autocomplete="email" placeholder="you@company.com" required>
+        </div>
+        <div class="f-row">
+          <div class="f-field">
+            <label class="f-label" for="r_pass">Password</label>
+            <input class="f-input" id="r_pass" type="password" autocomplete="new-password" placeholder="Min. 6 characters" required>
+          </div>
+          <div class="f-field">
+            <label class="f-label" for="r_role">Role</label>
+            <select class="f-input" id="r_role">
+              <option value="ADMIN">Admin</option>
+              <option value="MANAGER">Manager</option>
+              <option value="EMPLOYEE" selected>Employee</option>
+            </select>
+          </div>
+        </div>
+        <div class="f-error" id="regError" role="alert"></div>
+        <button class="btn btn-primary" id="regBtn" type="submit" style="width:100%;justify-content:center">Create account</button>
+      </form>
+      <div class="demo-box">
+        Demo account: <code>demo_admin</code> / <code>admin123</code> (Administrator)<br>
+        <span>API: <code id="apiShown"></code> · <a href="#" onclick="changeApi(event)">change…</a></span>
+      </div>
+      <p style="margin:12px 0 0;font-size:12.5px;color:var(--color-muted)">Secure access over a JWT-authenticated API. <a href="index.html">← Back to home</a></p>
+    </div>
+  </div>
+</div>
+<div id="toasts" aria-live="polite"></div>
+<script src="js/common.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

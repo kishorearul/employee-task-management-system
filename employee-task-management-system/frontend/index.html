@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ETMS — Enterprise Task Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230d2137'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23c9a227' font-family='Arial' font-weight='bold'>E</text></svg>">
+</head>
+<body>
+<header class="landing-top">
+  <span class="brand-mark" style="width:30px;height:30px;font-size:15px">E</span>
+  <strong style="letter-spacing:.12em">ETMS</strong>
+  <span class="spacer"></span>
+  <a class="btn btn-ghost" href="/docs">API docs</a>
+  <a class="btn btn-primary btn-sm" href="login.html" style="padding:8px 15px;font-size:13.5px">Sign in</a>
+</header>
+<main class="hero">
+  <span class="eyebrow">ENTERPRISE OPERATIONS PLATFORM</span>
+  <h1>People. Projects. <span class="gold">Progress.</span></h1>
+  <p class="lead">ETMS is the internal workspace for managing your workforce, delivering projects and tracking every task — with role-based access for admins, managers and employees.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="login.html">Sign in to console</a>
+    <a class="btn btn-secondary" href="/docs">Explore the API</a>
+  </div>
+  <div class="hero-cards">
+    <div class="kpi"><span class="kpi-icon navy" data-ic="users"></span><div><small>Workforce</small><div class="support">Employees &amp; departments in one directory.</div></div></div>
+    <div class="kpi"><span class="kpi-icon blue" data-ic="briefcase"></span><div><small>Delivery</small><div class="support">Projects with live progress tracking.</div></div></div>
+    <div class="kpi"><span class="kpi-icon gold" data-ic="checksquare"></span><div><small>Execution</small><div class="support">Assigned tasks, priorities, deadlines.</div></div></div>
+    <div class="kpi"><span class="kpi-icon green" data-ic="chart"></span><div><small>Insight</small><div class="support">Dashboards drawn from live data.</div></div></div>
+  </div>
+</main>
+<footer class="landing-foot">ETMS · Enterprise Task Management System · FastAPI + PostgreSQL backend</footer>
+<script src="js/common.js"></script>
+<script>
+  document.querySelectorAll("[data-ic]").forEach((el) => { el.innerHTML = icon(el.dataset.ic, 19); });
+</script>
+</body>
+</html>
